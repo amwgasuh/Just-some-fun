@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>具名slot</title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				Vue.component('my-list', {
+					props: {
+						books: {
+							type: Array,
+							defult: function() {
+								return [];
+							}
+						}
+					},
+					template: '\
+						<ul>\
+							<slot name="book"\
+							v-for="book in books"\
+							:book-name="book.name">\
+							</slot>\
+						</ul>'
+				});
+				
+				var app = new Vue({
+					el: '#app',
+					data: {
+						books: [
+							{ name: 'this'},
+							{ name: 'is'},
+							{ name: 'what'}
+						]
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<my-list :books="books">
+				<template slot="book" slot-scope="props">
+					<li>{{ props.bookName}}</li>
+				</template>
+			</my-list>
+		</div>
+	</body>
+</html>

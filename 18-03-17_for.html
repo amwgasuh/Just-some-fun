@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				myData = {
+					arr: ['12','asd','joij','dslaj'],
+					josn: {a:'12',b:'this',c:'is'}
+				}
+				var c = new Vue({
+					el: '#box',
+					data: myData
+				});
+			};
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li v-for="value in arr">
+					{{value}}	{{$index}}
+				</li>
+			</ul>
+			<ul>
+				<li v-for="value in josn">
+					{{value}}	{{$index}}	{{$key}}
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+<!--//常用指令-->

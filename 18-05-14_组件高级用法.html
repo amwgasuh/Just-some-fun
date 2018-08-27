@@ -1,0 +1,72 @@
+<!--
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动态组件</title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var app = new Vue({
+					el: '#app',
+					components: {
+						comA: {
+							template: '<div>组件A</div>'
+						},
+						comB: {
+							template: '<div>组件B</div>'
+						},
+						comC: {
+							template: '<div>组件C</div>'
+						}
+					},
+					data: {
+						currentView: 'comA'
+					},
+					methods: {
+						handleChangeView: function(component) {
+							this.currentView = 'com' + component;
+						}
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<component :is='currentView'></component>
+			<button @click="handleChangeView('A')">切换到A</button>
+			<button @click="handleChangeView('B')">切换到B</button>
+			<button @click="handleChangeView('C')">切换到C</button>
+		</div>
+	</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>动态组件</title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var Home = {
+					template: '<p>Welcome my family!</p>'
+				};
+				var app = new Vue({
+					el: '#app',
+					data: {
+						currentView: Home
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<component :is="currentView"></component>
+		</div>
+	</body>
+</html>

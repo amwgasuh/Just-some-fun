@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//函数参数支持默认值，但是如果有多个参数是默认值，只能省略最后一个
+			//一般情况下，只需要一个参数具有默认值的时候，可以使用这种方法，
+			//因为默认值的目的就在于可传可不会，这个时候把这个默认值参数作为尾参数
+			//比较单一
+			/*
+			function add(x = 10, y = 20) {
+				console.log(x, y)
+			}
+			*/
+			
+			/*
+			//更灵活
+			function add({
+				x=12,
+				y=20
+			}) {
+				console.log(x, y)
+			}
+			*/
+//			add(50, 20)
+			
+			//函数参数的 rest 参数
+			//作用：把剩余的参数都包装到一个数组中,它的作用其实是用来代替arguments的
+			//arguments:伪数组，不能使用数组方法
+			function add(x, y, ...args) {
+				console.log(x, y, args)
+			}
+			add(1, 2, 3, 4, 5)
+		</script>
+	</body>
+</html>

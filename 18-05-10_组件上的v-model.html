@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-model</title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				Vue.component('custom-input', {
+					props: ['value'],
+					template: '\
+						<input\
+							:value="searchText"\
+							@:input="searchText = $event">'
+				})
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<custom-input
+			v-bind:value="searchText"
+  			v-on:input="searchText = $event"
+			></custom-input>
+	</body>
+</html>

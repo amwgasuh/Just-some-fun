@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>组件</title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var myHeaderChild = {
+					template: '<p>i am my header child</p>'
+				}
+				
+				var myHeader = {
+					template: '<p v-html= "test" @:keydown.enter=""><component :is=""></component>this {{}} is my header</p><keep-alive><router-view></router-view></keep-alive>',
+					components: {
+						'my-header-child': myHeaderChild
+					},
+				}
+				
+				var root = new Vue({
+					el: '#app',
+					data: {
+						word: 'hello world'
+					},
+					components: {
+						'my-header': myHeader
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<my-header></my-header>
+			hello
+		</div>
+	</body>
+</html>

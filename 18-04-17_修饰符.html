@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var app = new Vue({
+					el: '#app',
+					data: {
+						message: ''
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model.lazy="message" />
+				<!--.lazy会转变为在change事件中同步-->
+			<p>{{ message }}</p>
+			<input type="number" v-model.number="message" />
+			<p>{{ typeof message }}</p>
+			<input type="text" v-model.trim="message" />
+				<!--.trim自动过滤输入的首尾空格-->
+			<p>{{ message }}</p>
+		</div>
+	</body>
+</html>

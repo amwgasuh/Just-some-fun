@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>单向数据流</title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				Vue.component('my-component', {
+					props: ['height'],
+					template: '<div :style="style">组件内容</div>',
+					computed:{
+						style: function() {
+							return {
+								height: this.height + 'px'
+							}
+						}
+					}
+				});
+				var app = new Vue({
+					el: '#app'
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<my-component :height="100"></my-component>
+		</div>
+	</body>
+</html>
+/**用v-bind可以直接传递数字、布尔值、数组、对象，而且不使用 v-bind, 传递的仅仅是字符串，**/

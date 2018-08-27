@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var app = new Vue({
+					el: '#app',
+					data: {
+						books: [
+							{
+								name: 'this',
+								author: '梁灏'
+							},
+								
+							{
+								name:'what JavaScript',
+								author: 'Nicholas C.Zakas'
+							},
+							
+							{
+								name:'is JavaScript',
+								author: 'Douglas Crockford'
+							}
+						]
+					},
+					computed: {
+						sortedBooks: function() {
+							return this.books.sort(function(a, b) {
+								return a.name.length < b.name.length;
+							});
+						}
+					},
+					computed: {
+						filterBooks: function() {
+							return this.books.filter(function(book) {
+								return book.name.match(/JavaScript/);	
+							});
+						}
+					}
+				});
+//				Vue.set(app.books, 3, {
+//					name: '!',
+//					author: '[希] Lea Verou'
+//				});
+//				app.books = app.books.filter/*过滤器*/(function (item) {
+//					return item.name.match(/JavaScript/);
+//				});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<template v-for="book in filterBooks">
+					<li>书名：{{book.name}}</li>
+					<li>作者：{{book.author}}</li>
+				</template>
+			</ul>
+		</div>
+	</body>
+</html>

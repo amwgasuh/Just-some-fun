@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单与v-model</title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var app = new Vue({
+					el: '#app',
+					data: {
+						message: '',
+//						text: ''
+					},
+					methods: {
+						handleInput: function (e) {
+							this.message = e.target.value;
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<textarea type="text" 
+				@input="handleInput"
+				placeholder="输入..." /></textarea>
+			<p>输入的内容是：{{ message }}</p>
+			<!--<p style="white-space: pre;">{{ text }}</p>-->
+		</div>
+	</body>
+</html>

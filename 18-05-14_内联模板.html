@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>递归组件</title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				Vue.component('child-component', {
+					name: 'child-component',
+					props: {
+						count: {
+							type: Number,
+							default: 1
+						}
+					},
+					template: '\
+						<div class="child">\
+							<child-component\
+								:count = "count + 1"\
+								v-if = "count < 3"></child-component>\
+						</div>'
+				});
+				
+				var app = new Vue({
+					el: '#app'
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<child-component :count="1"></child-component>
+		</div>
+	</body>
+</html>

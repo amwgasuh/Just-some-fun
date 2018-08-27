@@ -1,0 +1,58 @@
+<!--  ==========  -->
+<!--  = 
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>全局注册组件</title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				Vue.component('my-component', {
+					template: '<div>这里是 组件的内容</div>'
+				})
+				var app = new Vue({
+					el: '#app'
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<my-component></my-component>
+		</div>
+	</body>
+</html>
+=  -->
+<!--  ==========  -->
+	
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>局部注册组件</title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var Child = {
+					template: '<div>局部注册组件内容</div>'
+				}
+				
+				var app = new Vue({
+					el: '#app',
+					components: {
+						'my-component': Child
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<my-component></my-component>
+		</div>
+	</body>
+</html>
+/*** 在table中直接使用组件是无效的***/
+/*** 字符串不受限制***/
+/*** tbody在渲染时，会被替换为组件有内容。***/

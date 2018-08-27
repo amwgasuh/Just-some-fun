@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				new Vue({
+					el: '#app',
+					data: {
+						message: 'Hello!'
+					},
+					methods: {
+						revermessage: function() {
+							this.message = this.message.split('').reverse().join('')
+						}
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{ message }}</p>
+			<button v-on:click="revermessage">逆转消息</button>
+		</div>
+	</body>
+</html>

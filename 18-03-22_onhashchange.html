@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.css" />
+		<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/html" id="friend_html">
+			<div>
+				<h1>friend html page</h1>
+			</div>
+
+		</script>
+		<script type="text/javascript">
+			window.onload = function() {
+				hashchangeHandler()
+				
+				window.onhashchange = hashchangeHandler
+				
+				function hashchangeHandler() {
+					var hash = window.location.hash;
+					var pathname = hash.substr(1);
+					if (pathname === '/') {
+						$.ajax({
+							url: './find_music.html',
+							type: 'get',
+							success: function(data) {
+								$('#container').html(data)
+							}
+						})
+					} else if (pathname === '/my') {
+						$.ajax({
+							url: './my_music.html',
+							type: 'get',
+							success: function(data) {
+								$('#container').html(data)
+							}
+						})						
+					} else if (pathname === '/friend') {
+//						$.ajax({
+//							url: './friend.html',
+//							type: 'get',
+//							success: function(data) {
+//								$('#container').html(data)
+//							}
+//						})
+						$('#container').html($('#friend_html').html());
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Brand</a>
+		    </div>
+		
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="#/">发现音乐 <span class="sr-only">(current)</span></a></li>
+		        <li><a href="#/my">我的音乐</a></li>
+		        <li><a href="#/friend">朋友</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<div id="container" class="container">
+		</div>
+	</body>
+</html>

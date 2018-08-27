@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p:hover{
+			    cursor: pointer;
+			}
+			p.small{
+			    font-size: 20px;
+			}
+			p.large{
+			    font-size: 40px;
+			}
+		</style>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				
+				var myData = {
+						myTime: new Date().toLocaleString(),
+						mySize: 'small',
+						fontColor: 'red'
+					}
+				var myColor = ['purple', 'red', 'lightblue', 'yellow', 'green'];
+				
+				var i = 0;
+				
+				function upDateTime() {
+					myData.myTime = new Date().toLocaleString();
+					myData.fontColor = myColor[i];
+					i += 1;
+					if (i === 3)
+					return i = 0;
+				}
+					
+				new Vue({
+					el: '#app',
+					data: myData,
+					created: function() {
+						this.timer = setInterval(upDateTime,1000);
+					},
+					methods: {
+						handleClick: function() {
+							if(myData.mySize === 'small')
+								myData.mySize = 'large';
+							else
+								myData.mySize = 'small';
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<p :class="mySize" :style="{'color':fontColor}" @click="handleClick">{{myTime}}</p>
+		</div>
+	</body>
+</html>

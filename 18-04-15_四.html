@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>第四章</title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var app = new Vue({
+					//  ========== 
+					//  = v-bind指令 = 
+					//  ========== 
+//					el: '#app',
+//					data: {
+//						url: 'https://www.github.com',
+//						imgUrl: 'https://www.baidu.com'
+//					}
+					//  ========== 
+					//  = 绑定class的几种方式 = 
+					//  ========== 
+					el: '#app',
+					data: {
+						isActive: true
+					}
+					
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<!--<div id="app">
+			<a :href="url">链接</a>
+			<img :src="imgUrl"/>
+		</div>-->
+		
+		<!--  ==========  -->
+		<!--  = 绑定class的几种方式 =  -->
+		<!--  ==========  -->
+		<div id="app">
+			<div :class="{ 'active': isActive }"></div>
+		</div>
+	</body>
+
+</html>

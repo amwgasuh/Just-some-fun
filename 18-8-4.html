@@ -1,0 +1,64 @@
+<!--<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="myApp">
+			<h3>游戏列表</h3>
+			<div v-if="seen">2017年最新发售</div>
+			<ol>
+				<li v-for="game in games">{{ game.title}} / {{game.price}}元</li>
+			</ol>
+		</div>
+		<script>
+			var myApp = new Vue({
+				el: '#myApp',
+				data: {
+					seen: true,
+					games: [
+						{title:'this',price:'50'},
+						{title:'is',price:'60'},
+						{title:'what',price:'70'}
+					]
+				}
+			})
+		</script>
+	</body>
+</html>-->
+
+
+<html>
+	<head>
+		<title></title>
+		<meta charset="UTF-8"/>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{message}}</p>
+			<p>{{message | toupper}}</p>
+			<hr />
+			<p>现在的Vue.js的进度是{{num}}({{num | topercentage}})</p>
+		</div>
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					message: 'hello Vue,js world',
+					num: 0.3
+				},
+				filters: {
+					toupper: function(value) {
+						return value.toUpperCase();
+					},
+					topercentage: function(value) {
+						return value * 100 +'%';
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.two {
+				width: 100px; height: 100px;background: red;
+			}
+		</style>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				myData = {
+//					arr: ['12','asd','joij','dslaj'],
+					a:true
+//					josn: {a:'12',b:'this',c:'is'}
+				}
+				var c = new Vue({
+					el: '#box',
+					data: myData
+				});
+			};
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<!--		//event(事件)
+				<input type="button" value="教程" v-on:dblclick="show()" />
+			<br />
+			<ul>
+				<li v-for="value in arr">
+					{{value}}
+				</li>
+			</ul>
+			-->
+			
+			<!--点击按钮div消失-->
+			<input type="button" value="按钮" v-on:click="a=false"/>
+			<div class="two" v-show="a"></div>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+<!--//常用指令-->

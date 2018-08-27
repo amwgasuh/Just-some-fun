@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var app1 = new Vue({
+					el: '#app1',
+					data: {
+						text: '123,456'
+					}
+				});
+				var app2 = new Vue({
+					el: '#app2',
+					computed: {
+						reverseText: function() {
+							return app1.text.split(',').reverse().join(',');
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app1">
+		</div>
+		<div id="app2">
+			{{ reverseText }}
+		</div>
+	</body>
+</html>

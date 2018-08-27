@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				new Vue({
+					el: '#app',
+					data: {
+						a: 0,
+						b: 0,
+						c: 0,
+						operator: '*'
+					},
+					methods: {
+						calculator: function() {
+							switch(this.operator) {
+								case '+': {
+									this.c = parseInt(this.a) + parseInt(this.b);
+									break;
+								}
+								case '-': {
+									this.c = parseInt(this.a) - parseInt(this.b);
+									break;
+								}
+								case '*': {
+									this.c = parseInt(this.a) * parseInt(this.b);
+									break;
+								}
+								case '/': {
+									this.c = parseInt(this.a) / parseInt(this.b);
+									break;
+								}
+							}
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="a" :keyup.enter="calculator" />
+			<input type="text" v-model="operator"/>
+			<input type="text" v-model="b" :keyup.enter="calculator" />
+			<button @click="calculator">计算</button>
+			<p>计算结果：{{ a }} {{ operator }} {{ b }} = {{ c }}</p>
+		</div>
+	</body>
+</html>

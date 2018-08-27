@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				var app = new Vue({
+					el: '#app',
+					data: {
+						message: 'world!',
+						url: 'http://www.baidu.com',
+						isLogin: true
+					},
+					methods: {
+						handler: function() {
+							alert(1)
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<h1 :data-foo='message'>hello {{ message }}</h1>
+			<a :href=
+				-'url'>百度</a>
+			<hr />
+			<h1>表单数据双向绑定</h1>
+			<!-- 绑定了data中的数据不是双向的-->
+			<input type="text" :value="message" />
+			<!-- 双向绑定 文本框数据变化，data中的message也会变，所有绑定了message的数据都会变-->
+			<input type="text" v-model="message" />
+			<br />
+			<textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
+			<input type="checkbox" v-model="isLogin"/>
+			<button @click="handler">点我</button>
+		</div>
+	</body>
+</html>

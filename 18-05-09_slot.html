@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>作用域</title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				Vue.component('child-component', {
+					template: '<div v-show="showChild">子组件</div>',
+					data: function() {
+						return {
+							showChild: true
+						}
+					}
+				});
+				
+				var app = new Vue({
+					el: '#app'
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<child-component></child-component>
+		</div>
+	</body>
+</html>

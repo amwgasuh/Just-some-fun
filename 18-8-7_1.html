@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			今年3月3号发卖的任天堂新一代主机Switch的价格是：{{price}}元，含税价格为：{{priceInTax}}元，折合为：{{priceChinaRMB}}
+			<button @click="btnClick(1000)">加价1000元</button>
+		</div>
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					price: 20198,
+					priceInTax: 0,
+					priceChinaRMB: 0
+				},
+				watch: {
+					price: function(newVal, oldVal) {
+						console.log(newVal, oldVal);
+						this.priceInTax = Math.round(this.price * 1.08);
+						this.priceChinaRMB = Math.round(this.priceInTax * 16.75);
+					}
+				},
+				methods: {
+					btnClick: function (newPrice) {
+						this.price += newPrice;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

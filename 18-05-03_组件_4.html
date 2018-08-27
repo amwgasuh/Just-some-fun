@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数组件</title>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				Vue.component('my-component', {
+					template: '<button @click="counter++"> {{ counter }}</button>',
+					data: function() {
+						return {
+							counter: 0
+						};
+					}
+				});
+				
+				var app = new Vue({
+					el: '#app'
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+			<my-component></my-component>
+			<my-component></my-component>
+			<my-component></my-component>
+		</div>
+	</body>
+</html>

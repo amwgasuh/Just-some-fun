@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="https://unpkg.com/vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				/*
+				$('#btn_add').click(function() {
+					$('#number').val($('#number').val() - 0 + 1)
+				})
+				$('#btn_cal').click(function() {
+					var num1 = $('#num1').val() - 0;
+					var num2 = $('#num2').val() - 0;
+					$('#ret').html(num1 + num2);
+				})
+				*/
+				var app = new Vue({
+					el: '#app',
+					data: {
+						num1: 0,
+						num2: 0,
+						ret: 0
+					},
+					methods: {
+//						increment: function() {
+//						console.log('该方法被执行了')
+//							app.number++
+//						}
+						click: function() {
+							this.ret= this.num1 - 0 + (this.num2 - 0)
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<!--
+		<div id="app">
+			<input type="number" id="number" v-model="number" />
+			<button id="btn_add" v-on:click="increment">点击</button>
+		</div>
+		<hr />
+		-->
+		<div id="app">
+			<input type="number" v-model="num1"/>
+			<span>+</span>
+			<input type="number" v-model="num2"/>
+			<button v-on:click="click">点击</button>
+			<strong>{{ ret }}</strong>
+		</div>
+		<!--<div id="app">
+			<h1>{{ message }}</h1>
+			<p>{{ message }}</p>
+			<h2>{{ message }}</h2>
+			<input type="text" v-model="message" />
+		</div>-->
+	</body>
+</html>

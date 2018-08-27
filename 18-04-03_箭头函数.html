@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>箭头函数</title>
+		<script>
+			//new function()
+			//表达式
+				//可以使用函数简写
+			//函数声明
+				//箭头函数不能用于函数声明
+				//箭头函数不能当作构造函数
+//			var add = function(x, y) {
+//				return x + y
+//			}
+			
+			// => 读作 goes to 去做
+//			var add = (x, y) => {
+//				return x + y
+//			}
+//			alert(add(1, 2));
+
+//			var add = function(x) {
+//				return x;
+//			}
+			
+			//一个参数可以省略()
+//			var add = x => {
+//				return x;
+//			}
+			
+			//一条函数体可以省略 {}
+			//默认后面表达式的值直接作为函数的返回值
+			//注意：不能显示写 'return'，否则报错
+//			var add = x => 1 + 2
+//			alert(add())
+			
+			//如果还是在{}里面的函数体，则必须显示return才可以有返回值
+//			var add = (x, y) => {
+//				console.log(x, y)
+//				return x + y;
+//			}
+			
+			//匿名函数用的最多
+			
+//			var arr = ['a', 'b', 'c']
+//			arr.forEach((item, index) => console.log(item, index))
+//			arr.findIndex(function (item) {
+//				return item === 'b'
+//			})
+//			var index = arr.findIndex(item => item === 'b')
+//			console.log(index)
+
+
+			//箭头函数：自动bind(this)
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
