@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas#myCanvas {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas"></canvas>
+		<script type="text/javascript">
+			var c = document.getElementById("myCanvas");
+			c.width = 500;
+			c.height = 500;
+			var cxt = c.getContext("2d");
+			arr(100, 100, 200, 200, 100, 300, "red");
+			arr(200, 100, 300, 200, 200, 300, "green");
+			arr(300, 100, 400, 200, 300, 300, "blue");
+			function arr(x1, y1, x2, y2, x3, y3, color) {
+				cxt.beginPath();
+				cxt.strokeStyle = color;
+				cxt.moveTo(x1, y1);
+				cxt.lineTo(x2, y2);
+				cxt.lineTo(x3, y3);
+				cxt.stroke();
+			}
+		</script>
+	</body>
+</html>

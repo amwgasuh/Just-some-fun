@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css" media="screen">
+        #myCanvas {
+            border:1px solid black;
+            background: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        var c = document.getElementById("myCanvas");
+        c.width = 500;
+        c.height = 500;
+        var cxt = c.getContext("2d");
+
+        // arr(120, 80, 60, 0, 2, "");
+        arr(120, 80, 60, 0.5, 1.5, "white");
+        arr(120, 80, 60, 1.5, 0.5, "black");
+        arr(120, 110, 30, 0.5, 1.5, "black");
+        arr(120, 50, 30, 1.5, 0.5, "white");
+        arr(120, 50, 4, 0, 2, "black");
+        arr(120, 110, 4, 0, 2, "white");
+
+        function arr(x, y, r, s, z, color) {
+            cxt.beginPath();
+            cxt.fillStyle = color;
+            cxt.arc(x, y, r, Math.PI*s, Math.PI*z, true);
+            // cxt.stroke();
+            cxt.fill();
+        }
+    </script>
+</body>
+</html>

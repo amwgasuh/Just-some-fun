@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			/*function SuperType(name){
+				this.name = name;
+				this.colors = ["red", "blue", "green"];
+			}
+			
+			SuperType.prototype.sayName = function() {
+				alert(this.name);
+			};
+			
+			function SubType(name, age) {
+				SuperType.call(this, name);
+				this.age = age;
+			}
+			
+			SubType.prototype = new SuperType();
+			SubType.prototype.constructor = SubType;
+			SubType.prototype.sayAge = function() {
+				alert(this.age);
+			};
+			
+			fn(1);
+			fn(2);
+			
+			function fn(x) {
+				var instancex = new SubType("Nicholas", 29);
+					instancex.colors.push("black");
+					alert(instancex.colors);
+					instancex.sayName();
+					instancex.sayAge();	
+			};
+			*/
+			
+			/*
+					//prototype inherit
+			function object(o) {
+				function F() {}
+				F.prototype = o;
+				return new F();
+			}
+			var person = {
+				name: "Nicholas",
+				friends: ["Shelby", "Count", "Van"]
+			};
+			
+			var anotherPerson = object (person);
+			anotherPerson.name = "Greg";
+			anotherPerson.friends.push ("Rob");
+			
+			var yetAnotherPerson = object (person);
+			yetAnotherPerson.name = "Linda";
+			yetAnotherPerson.friends.push ("Barbie");
+			
+			alert(person.friends);
+			
+			method:2
+			var person = {
+				name: "Nicholas",
+				friends: ["Shelby", "Count", "Van"]
+			};
+			
+			var anotherPerson = Object.create(person, {
+				name: {
+					value: "Greg"
+				}
+			});
+			
+			alert(anotherPerson.name);
+			*/
+
+			/*
+				// parasitic inherit(寄生式继承)
+			function createAnother(original) {
+				var clone = object(original);
+				clone.sayHi = function() {
+					alert("hi");
+				};
+				return clone;
+			}
+			
+			var person = {
+				name: "Nicholas",
+				friends: ["Shelby", "Count", "Van"]
+			};
+			
+			var anotherPerson = createAnother(person);
+			anotherPerson.sayHi();
+			*/
+			
+			function SuperType(name) {
+				this.name = name;
+				this.colors = ["red", "blue", "green"];
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

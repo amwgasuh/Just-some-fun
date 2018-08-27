@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas#mycanvas {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mycanvas"></canvas>
+		<script type="text/javascript">
+			var c =document.getElementById("mycanvas");
+			c.width = 500;
+			c.height = 500;
+			var cxt = c.getContext("2d");
+	//			cxt.beginPath();
+	//			cxt.strokeStyle = "#9ACD32";
+	//			cxt.moveTo(50,50);
+	//			cxt.lineTo(150,80);
+	//			cxt.stroke();
+	//			cxt.beginPath();
+	//			cxt.strokeStyle = "#87CEEB";
+	//			cxt.moveTo(100,50);
+	//			cxt.lineTo(100,100);
+	//			cxt.stroke();
+			line(50, 50, 150, 80, "purple");
+			line(100, 50, 100, 100, "#87CEEB");
+			function line(x1, y1, x2, y2, color) {
+				cxt.beginPath();
+				cxt.strokeStyle = color;
+				cxt.moveTo(x1,y1);
+				cxt.lineTo(x2,y2);
+				cxt.stroke();
+			}
+		</script>
+	</body>
+</html>
+
+
+

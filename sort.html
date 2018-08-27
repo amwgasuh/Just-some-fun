@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var ary = [2,3,5,71,32,42,54];
+			function sor(ary1, ary2) {
+				if (ary1 > ary2) {
+					return 1;
+				} else if (ary1 < ary2){
+					return -1;
+				} else {
+					return 0;
+				}
+			}
+			console.log(ary.sort());
+			console.log(ary.sort(sor));
+		</script>
+	</body>
+</html>

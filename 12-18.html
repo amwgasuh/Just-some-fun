@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div { text-align: center;}
+			#myCanvas { border: 1px solid #000; }
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var c = document.getElementById("myCanvas");
+				c.width = 500;
+				c.height = 500;
+				var r = c.width/2;
+				txc = c.getContext("2d");
+				function drawBackground() {
+					txc.save();
+					txc.translate(r,r);
+					txc.beginPath();
+					txc.lineWidth = 10;
+					txc.strokeStyle = "#000000";
+					txc.arc(0,0,r-5,0,Math.PI*2,true);
+//					txc.fill();
+					txc.stroke();
+				
+					var hours = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2];
+					txc.font = "20px arial";
+					txc.textAlign = "center";
+					txc.textBaseline = "middle";
+					txc.strokeStyle = "skyblue";
+					hours.forEach(function(number, i) {
+						var rad = 2 * Math.PI / 12 * i;
+						var x = Math.cos(rad) * (r-30);
+						var y = Math.sin(rad) * (r-30);
+						txc.fillText(number, x, y);
+					});
+					for (var i = 0; i < 60; i++) {
+						var rad = 2 *Math.PI /60 *i;
+						var x = Math.cos(rad) * (r-15);
+						var y = Math.sin(rad) * (r-15);
+						txc.beginPath();
+						if ( i % 5 == 0) {
+							txc.fillStyle = "#000";
+							txc.arc(x, y, 2, 0, 2*Math.PI ,false);
+						} else {
+							txc.fillStyle = "#999";
+							txc.arc(x, y, 1, 0, 2*Math.PI ,false);
+						}
+						txc.fill();
+					}
+				}
+					
+				function drawHour(hour, minute) {
+					txc.save();
+					txc.beginPath();
+					txc.lineWidth = 6;
+					txc.lineCap = "round";
+					var rad = 2*Math.PI/12*hour;
+					var mrad = 2*Math.PI / 12 / 60 * minute;
+					txc.rotate(rad + mrad);
+					txc.moveTo(0,5);
+					txc.lineTo(0,-r/2);
+					txc.stroke();
+					txc.restore();
+				}
+				
+				function drawMinute(minute) {
+					txc.save();
+					txc.beginPath();
+					txc.lineWidth = 3;
+					txc.lineCap = "round";
+					txc.rotate(2*Math.PI/60*minute);
+					txc.moveTo(0,10);
+					txc.lineTo(0,-r*3/5);
+					txc.stroke();
+					txc.restore();
+				}
+				
+				function drawSecond(second) {
+					txc.save();
+					txc.beginPath();
+					txc.fillStyle = "red";
+					txc.lineCap = "round";
+					txc.rotate(2*Math.PI/60*second);
+					txc.moveTo(-15,-2);
+					txc.lineTo(r*4/5,0);
+					txc.lineTo(r*4/5,1);
+					txc.lineTo(-15,2);
+					txc.fill();
+					txc.restore();
+				}
+				
+				function drawDot() {
+					txc.beginPath();
+					txc.fillStyle = "#fff";
+					txc.arc(0,0,3,0,2*Math.PI,false);
+					txc.fill();
+				}
+				function draw() {
+//					txc.clearRect(-r,-r,c.width,c.height);
+					txc.clearRect(0,0,c.width,c.height);
+					var now = new Date();
+					var hour = now.getHours();
+					var minute = now.getMinutes();
+					var second = now.getSeconds();
+					drawBackground();
+					drawHour(hour, minute);
+					drawMinute(minute);
+					drawSecond(second);
+					drawDot();
+					txc.restore();
+				}
+				
+				draw();
+				setInterval(draw,1000);
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<canvas id="myCanvas"></canvas>
+		</div>
+	</body>
+</html>

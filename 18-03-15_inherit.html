@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			function SuperType() {
+				this.property = true;
+			}
+			SuperType.prototype.getSuperValue = function() {
+				return this.property;
+			};
+			function SubType() {
+				this.subproperty = false;
+			}
+			SubType.prototype = new SuperType();
+			SubType.prototype.getSubValue = func tion() {
+				return this.subproperty;
+			};
+			var instance = new SubType();
+			alert(instance.getSuperValue());
+			*/
+			
+			function SuperType() {
+				thisproperty = true;
+			}
+			
+			SuperType.prototype.getSuperValue = function() {
+				return this.property;
+			};
+			
+			function SubType() {
+				this.subproperty = false;
+			}
+			
+			//继承了 SuperType
+			SubType.prototype = new SuperType();
+			
+			
+						
+			//添加新方法
+			SubType.prototype.getSubValue = function() {
+				return this.subproperty;
+			};
+			
+			//重写超类型中的方法
+			
+			SubType.prototype.getSuperValue = function() {
+				return false;
+			};
+			
+			
+			/*		error!	
+			 *		 //使用字面量添加新方法，会导致上行代码无效
+			SubType.prototype = {
+				getSubValue : function() {
+					return this.subproperty;
+				},
+				someOtherMethod : function() {
+					return false;
+				}
+			};
+			*/			
+			var instance = new SubType();
+			alert(instance.getSuperValue());
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

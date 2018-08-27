@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>菜鸟教程(runoob.com)</title>
+		<!--<style type="text/css">
+			#div1 {
+				color: #000000;
+				background: #FFFFFF;
+			}
+			#div2 {
+				border: solid 1px #000000;
+			}
+		</style>-->
+	</head>
+	<body>
+		<!--<fieldset>
+			<legend>Chose a dinosaur:</legend>
+			<input type="radio" name="dino" id="dino_enigmo" value="Enigmosaurus" />
+			<label for="dino_enigmo">The mysterious type</label>
+			<input type="radio" name="dino" id="dino_spino" value="Spinosaurus" />
+			<label for="dino_spino">One with losts of backbone</label>
+		</fieldset>-->
+		
+		<!--------------------------------------------------------->
+		
+		<!--<nav id="sitelinks">
+			<a href="page1.html">page1</a>
+			<a href="page2.html">page2</a>
+			<a href="page3.html">page3</a>
+		</nav>
+		<div>
+			Here is some content and check out <a href="someplace.come">my other site</a>!
+		</div>-->
+		
+		<!--------------------------------------------------------->
+		
+		<!--<div id="div1" title="all about me!">
+			This is what！
+		</div>-->
+
+		<!--------------------------------------------------------->
+		
+		<!--<div id="div1" title="Gosh!">
+			Whatever I fell like I want to write...
+		</div>-->
+		
+		<!--------------------------------------------------------->
+		
+		<!--<div id="div1">
+			When will i update this page?
+		</div>
+		<div id="div2">
+			<a href="#" id="c_link">Find out!</a>
+		</div>-->
+
+		<!--------------------------------------------------------->
+		
+		<!--<form>
+			Phone Number;
+			<input type="text" id="pn"> <span id="reminder"></span><br /><br />
+			<textarea ></textarea>
+		</form>-->
+		
+		<!--------------------------------------------------------->
+		
+		<input type="button" id="mydiv" value="this is what!" />
+	</body>
+	<script type="text/javascript">
+//		var dino_radio = document.getElementsByName("dino");
+//		var nav_element = document.getElementById("sitelinks");
+//		var nav_links = nav_element.getElementsByTagName("a");
+//		alert("There are " + nav_links.length + " links in the nav element.");
+
+/*************************************************************/
+
+//		var me_div = document.getElementById("div1");
+//		var inner_div= document.createElement("div");
+//		var inner_div_text = document.createTextNode("what happened!");
+//		inner_div.appendChild(inner_div_text);
+//		inner_div.title ="more";
+//		me_div.appendChild(inner_div); //增加子节点inner_div
+//		me_div.removeChild(inner_div); //删除子节点inner_div
+//
+
+/*************************************************************/
+
+//		var my_div = document.getElementById("div1");
+//		alert(my_div.title);
+//		var new_div = document.createElement("div"); //创建子节点
+//		var new_div_text = document.createTextNode("See you!"); //创建文本节点并赋值
+//		new_div.appendChild(new_div_text); //把文本节点添加到new_div
+//		new_div.title = "Luckly";  //给new_div赋title属性
+//		alert(new_div.title);
+//		my_div.appendChild(new_div); //把子节点new_div添加到你节点my_div
+
+		/*************************************************************/
+		
+//		var d1 = document.getElementById("div1");
+//		var d2 = document.getElementById("div2");
+//		d1.onclick = function() {
+//			d1.style.backgroundColor = "#ccc";
+//			<strong>Right now!</strong>
+//			Was thas quick or what?
+//			return false;
+//		};    更改css中的属性
+
+		/*************************************************************/
+
+//		var Focus = document.getElementById("focus");
+//		var Blur = document.getElementById("blur");
+//		Focus.onfocus = function() {
+//			window.alert("don't forget to capitalize!");
+//		}   //获取焦点
+//		Blur.onblur = function() {
+//			window.alert("get out");
+//		}  //失去焦点
+
+		/*************************************************************/
+		
+//		var pn = document.getElementById("pn");
+//		var rm = document.getElementById("reminder");
+//		pn.onfocus = function() {
+//			rm.innerText = "Format:123-456-7890";
+//		};
+//		pn.onblur = function() {
+//			rm.innerText = "";	
+//		};
+
+		/*************************************************************/
+		
+		var mydiv = document.getElementById("mydiv");
+		mydiv.onclick = function() {
+			alert("First click");
+		}
+		mydiv.onclick = function() {
+			alert("Second click");
+		}
+	</script>
+</html>

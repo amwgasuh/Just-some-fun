@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				function number(n) {
+					if (isFinite(n) && n>0 && n == Math.round(n)) {
+						if (!(n in Number))
+							number[n] = n * number(n-1);
+						return number[n];
+					}
+					else return NaN;
+				}
+				number[1] = 1;
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

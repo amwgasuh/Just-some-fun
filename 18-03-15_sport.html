@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#click { width: 1000px; height: 1000px; background: #eee; position: relative;}
+			strong { width: 100px; height: 100px; background: white; display: block; border: 1px solid #000;}
+			.none { width: 300px; height: 200px; background: #ccc; position: absolute; top: 200px; left: 200px; font-size: 20px; /*display: none;*/}
+			.none span { width: 25px; height: 25px; line-height: 25px; background: #eee; display: block; text-align: center; font-size: 14px; border: 1px solid #000; 
+			float: right; margin-right: 22px; cursor: pointer;}
+			.none input { margin-left: 75px; cursor: pointer;}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				var oDiv = document.getElementById("click");
+				var oBtn = oDiv.getElementsByTagName("button")[0];
+				var oStrong = oDiv.getElementsByTagName("strong")[0];
+				var oNone = oDiv.getElementsByClassName("none")[0];
+				var aSpan = oNone.getElementsByTagName("span");
+				var aP = oNone.getElementsByTagName("p");
+				
+				
+				oBtn.onclick = function() {
+					oNone.style.display = "block";
+				}
+				fn(0, "blue");
+				fn(1, "green");
+				fn(2, "red");
+				
+				function fn(i, color) {
+					return	if (i < 3) {
+							aSpan[i].onclick = function() {
+							aSpan[i].style.background = color;
+							oStrong.style.background = aSpan[i].style.background; 
+						}
+						
+					} else{
+							for(var j = 3; j < aSpan.lengt; j++) {
+								aSpan[j].onclick = function() {
+									aSpan[j].style.width = aSpan[j].innerHTML;
+									aStrong.style.width = aSpan[j].innerHTML;
+								}
+							}
+					}
+				}
+				
+				
+//				aSpan[1].onclick = function() {
+//					aSpan[1].style.background = "green";
+//					oStrong.style.background = aSpan[1].style.background; 
+//				}
+//				aSpan[2].onclick = function() {
+//					aSpan[2].style.background = "red";
+//					oStrong.style.background = aSpan[2].style.background; 
+//				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="click">
+			<b>设置图形样式:</b>
+			<button>点击设置</button>
+			<strong></strong>
+			<div class="none">
+				<p>请选择背景色	：<span style="background: aliceblue;">蓝</span><span style="background: lightgreen;">绿</span><span style="background: palevioletred;">红</span></p>
+				<p>请选择宽(px)	：<span>400</span><span>300</span><span>200</span></p>
+				<p>请选择高(px)	：<span>400</span><span>300</span><span>200</span></p>
+				<input type="reset" value="重置" />
+				<input type="button" value="确定" />
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			form {
+				width: 500px;
+				height: 200px;
+				line-height: 28px;
+				
+			}
+			span {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<form autocomplete="on">
+			姓名：<input type="text" placeholder="请输入您的姓名" required="required"/><span>*</span><br />
+			密码：<input type="password" placeholder="请输入您的密码" /><br />
+			上传相片：<input type="file" name="img" multiple="multiple" />(备注：可以上传多张)<br />
+			联系电话：<input type="tel" placeholder="请输入您的电话号码" pattern="\d{3}-\d{8}|\d{4}-\{7,8}"/>(格式：027-87769110)<br />
+			QQ号码： <input type="text" placeholder="请输入您的QQ" pattern="^[0-9]{5,12}$"/>
+			<input type="submit" value="注册帐户" required="required"/>
+			<input type="reset" value="重置" />
+		</form>
+	</body>
+</html>
